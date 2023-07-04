@@ -1,0 +1,11 @@
+{
+  "name": "Organizador de candidaturas em vagas",
+  "version": "1.0.0",
+  "description": "Uma ferramenta para auxiliar o preenchimento de uma tabela do Notion e organizar candidaturas em vagas de emprego.",
+  "manifest_version": 3,
+  "author": "Beatriz Ereno",
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "Organizador de candidaturas"
+  }
+}

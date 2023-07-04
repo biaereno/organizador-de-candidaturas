@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Organizador de candidaturas</title>
+    <meta charset="utf-8">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div>
+        <form id="form">
+            <fieldset>
+                <legend>Organizador de candidaturas</legend>
+                <label for="nomevaga">Nome da Vaga:</label>
+                <input type="text" id="nomevaga" name="nomevaga"><br><br>
+
+                <label for="plat">Plataforma:</label>
+                <select id="plat" name="plat">
+                    <option value="Linkedin">Linkedin</option>
+                    <option value="Gupy">Gupy</option>
+                </select><br><br>
+
+                <label>Tipo da vaga:</label><br>
+
+                <input type="checkbox" id="tag1" name="tag1" value="PJ">
+                <label for="tag1"> PJ </label><br>
+
+                <input type="checkbox" id="tag2" name="tag2" value="CLT">
+                <label for="tag2"> CLT </label><br>
+
+                <input type="checkbox" id="tag3" name="tag3" value="Remoto">
+                <label for="tag3"> Remoto </label><br>
+
+                <input type="checkbox" id="tag4" name="tag4" value="Presencial">
+                <label for="tag4"> Presencial </label><br>
+
+                <input type="checkbox" id="tag5" name="tag5" value="Hibrido">
+                <label for="tag5"> Híbrido </label>
+                
+                <br><br>
+
+                <label for="obs">Observações:</label>
+                <input type="text" id="obs" name="obs"><br><br>
+
+                <input type="submit" value="Enviar para o Notion">
+            </fieldset>
+        </form>
+    </div>    
+</body>
+</html>
