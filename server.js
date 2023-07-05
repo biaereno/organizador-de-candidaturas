@@ -33,7 +33,18 @@ app.post('/submit-form', async (req, res) => {
 
 // Função para transformar os dados do formulário em JSON no formato esperado pelo Notion
 function transformFormDataToNotionJSON(formData) {
-  const { nomevaga, plat, obs } = formData;
+  const { nomevaga, plat, obs, tag1, tag2, tag3, tag4, tag5 } = formData;
+
+  const multiSelectOptions = [
+    { name: tag1 },
+    { name: tag2 },
+    { name: tag3 },
+    { name: tag4 },
+    { name: tag5 }
+  ];
+
+  // Filtra as opções selecionadas no multi select
+  const selectedOptions = multiSelectOptions.filter(option => option.name !== '');
 
   return {
     parent: { database_id: NOTION_DATABASE_ID },
@@ -41,18 +52,13 @@ function transformFormDataToNotionJSON(formData) {
       'Nome da vaga': { title: [{ type: 'text', text: { content: nomevaga } }] },
       'Plataforma': { select: { name: plat } },
       'Tipo de vaga': {
-        'multi_select': [
-          { name: formData.tag1 },
-          { name: formData.tag2 },
-          { name: formData.tag3 },
-          { name: formData.tag4 },
-          { name: formData.tag5 }
-        ]
+        'multi_select': selectedOptions.length > 0 ? selectedOptions : []
       },
       'Observações': { rich_text: [{ text: { content: obs } }] }
     }
   };
 }
+
 
 // Inicie o servidor na porta 3000 (ou em outra porta de sua preferência)
 app.listen(3000, () => {
