@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
 const axios = require('axios');
@@ -6,12 +7,12 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-const NOTION_API_URL = 'https://api.notion.com/v1/pages';
-const NOTION_DATABASE_ID = '813c4bf80df34030beb88745e3ecd62c';
+const NOTION_API_URL = process.env.NOTION_API_URL;
+const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
 const NOTION_API_HEADERS = {
-  'Authorization': 'secret_7BDMgPGAavPYlrUSPVSpUdxWxDujbH7DaN5nt5Cwabu',
-  'Content-Type': 'application/json',
-  'Notion-Version': '2022-06-28'
+  'Authorization': process.env.NOTION_API_HEADER_AUTHORIZATION,
+  'Content-Type': process.env.NOTION_API_HEADER_CONTENT_TYPE,
+  'Notion-Version': process.env.NOTION_API_HEADER_NOTION_VERSION
 };
 
 // Rota para receber as informações enviadas pelo formulário
@@ -60,7 +61,7 @@ function transformFormDataToNotionJSON(formData) {
 }
 
 
-// Inicie o servidor na porta 3000 (ou em outra porta de sua preferência)
+// Inicia o servidor na porta 3000
 app.listen(3000, () => {
   console.log('Servidor iniciado na porta 3000');
 });
